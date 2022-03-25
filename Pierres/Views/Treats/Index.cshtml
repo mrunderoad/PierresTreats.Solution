@@ -6,7 +6,7 @@
 @model IEnumerable<Pierres.Models.Treat>;
 
 <div class="jumbotron">
-  <h1>Treats For @User.Identity.Name</h1>
+  <h1>Avaliable Treats For @User.Identity.Name</h1>
 </div>
 <hr />
 @if (Model.Any())
@@ -23,5 +23,5 @@ else
   <h3>No Treats have been made yet! Get Pierre to teach you the ways!</h3>
 }
 <hr />
-<button class="btn-success">@Html.ActionLink("Add new Treat!", "Create")</button>
-<button class="btn-success">@Html.ActionLink("Home", "Index", "Home")</button>
+<button class="btn-warning">@Html.ActionLink("Add new Treat!", "Create")</button>
+<button class="btn-warning">@Html.ActionLink("Home", "Index", "Home")</button>
