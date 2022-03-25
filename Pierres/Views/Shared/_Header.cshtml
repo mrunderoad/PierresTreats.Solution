@@ -1,7 +1,6 @@
 @if (User.Identity.IsAuthenticated)
 {
 <div id="header">
-  <button class="btn-warning clickMe">Click Me!</button>
   <button class="btn-warning">@Html.ActionLink("Home", "Index", "Home")</button>
   <button class="btn-warning">@Html.ActionLink("See Treats", "Index", "Treats")</button>
   <button class="btn-warning">@Html.ActionLink("See Flavors", "Index", "Flavors")</button>

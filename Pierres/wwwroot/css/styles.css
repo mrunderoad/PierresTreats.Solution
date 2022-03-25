@@ -11,6 +11,9 @@ div#header {
 
 body {
   background-color: aquamarine;
+  background-image: url("https://i.pinimg.com/originals/98/c8/dd/98c8ddb18b1311c90f9e56e08ad7358d.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .jumbotron {
@@ -19,6 +22,7 @@ body {
   text-align: center;
   color: white;
   text-shadow: 2px 2px 2px rgb(181, 64, 185);
+  background-image: url("https://cdnimg.webstaurantstore.com/images/articles/12/how-to-start-a-bakery-large.jpg");
 }
 
 .btnRight {
@@ -131,15 +135,10 @@ a:hover {
   background-color: rgb(240, 156, 243);
 }
 
-.clickMe {
-  float: left;
-  transition: 0.5s;
-}
-
-.clickMe:hover {
-  display: none;
-}
-
 .home {
   text-align: center;
+}
+
+.rows {
+  margin-left: 33vw;
 }
