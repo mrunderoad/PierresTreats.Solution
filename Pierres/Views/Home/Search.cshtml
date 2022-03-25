@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pierres.Models.Treat
+
+<div class="jumbotron">
+  <h1>Search for Treats and Flavors!</h1>
+  <p>Searces through all users, clicking on a result directs you to your index page.</p>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.TextBoxFor(model => model.Search)
+  <input type="submit" value="Search" />
+}
+@foreach (var treats in ViewBag.Treats)
+{
+  <li>@Html.ActionLink($"{treats.Name}", "Index", "Treats", new { id = treats.TreatId })</li>
+}
+@foreach (var flavors in ViewBag.Flavors)
+{
+  <li>@Html.ActionLink($"{flavors.Name}", "Index", "Flavors", new { id = flavors.FlavorId })</li> 
+}
