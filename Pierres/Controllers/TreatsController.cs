@@ -95,16 +95,21 @@ namespace Pierres.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult AddFlavor(int id)
+    public async Task<ActionResult> AddFlavor(int id)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      ViewBag.FlavorId = new SelectList(_db.Flavors.Where(entry => entry.User.Id == currentUser.Id), "FlavorId", "Name");
       return View(thisTreat);
     }
 
     [HttpPost]
-    public ActionResult AddFlavor(Treat treat, int FlavorId)
+    public async Task<ActionResult> AddFlavor(Treat treat, int FlavorId)
     {
+       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      treat.User = currentUser;
       if (FlavorId != 0)
       {
         _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });

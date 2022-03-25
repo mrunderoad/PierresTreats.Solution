@@ -92,3 +92,23 @@ a:hover {
 .loginIndex {
   text-align: center;
 }
+
+.tName {
+  width: 15vw;
+  text-align: center;
+  margin-left: 15vw;
+  background-color: rgb(240, 156, 243);
+}
+
+.tQuantity {
+  width: 15vw;
+  text-align: center;
+  margin-left: 15vw;
+  background-color: rgb(240, 156, 243);
+}
+
+.treatFlav, .flavRemove {
+  text-align: center;
+  list-style-position: inside;
+  background-color: rgb(240, 156, 243);
+}

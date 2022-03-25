@@ -9,15 +9,17 @@
 </div>
 <hr />
 <div class="row">
-<h3>Treat Name:</h3>
-<p>@Html.DisplayFor(model => model.Name)</p>
+  <div class="card tName">
+  <h3>Treat Name:</h3>
+  <p>@Html.DisplayFor(model => model.Name)</p>
+  </div>
+  <div class="card tQuantity">
+  <h3>Treat Quantity:</h3>
+  <p>@Html.DisplayFor(model => model.Quantity)</p>
+  </div>
 </div>
 <hr />
-<div class="row">
-<h3>Treat Quantity:</h3>
-<p>@Html.DisplayFor(model => model.Quantity)</p>
-</div>
-<hr />
+<div class="card treatFlav">
 @if (@Model.JoinEntities.Count == 0)
 {
   <h4>@Html.DisplayFor(model => model.Name) is not assigned under a Flavor!</h4>
@@ -32,7 +34,9 @@ else
     }
   </ul>
 }
+</div>
 <hr />
+<div class="card flavRemove">
 @if (@Model.JoinEntities.Count == 0)
 {
   <h4>No Flavors to remove @Html.DisplayFor(model => model.Name) from.</h4>
@@ -41,16 +45,19 @@ else
 {
   <h4>Remove @Html.DisplayFor(model => model.Name) from Flavor:</h4>
   <ul>
-    @foreach (var join in Model.JoinEntities)
-    {
-      @using (Html.BeginForm("DeleteFlavor", "Treats"))
+    <div class="row">
+      @foreach (var join in Model.JoinEntities)
       {
-        @Html.Hidden("joinId", @join.FlavorTreatId)
-        <input type="submit" value="@join.Flavor.Name" />
+        @using (Html.BeginForm("DeleteFlavor", "Treats"))
+        {
+          @Html.Hidden("joinId", @join.FlavorTreatId)
+          <input type="submit" value="@join.Flavor.Name" />
+        }
       }
-    }
+    </div>
   </ul>
 }
+</div>
 <hr />
 <button class="btn">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
 <button class="btn">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</button>
