@@ -12,6 +12,7 @@ namespace Pierres.Models
     public int TreatId { get; set; }
     public string Name { get; set; }
     public int Quantity { get; set; }
+    public string Search { get; set; }
     public virtual ApplicationUser User { get; set; }
     public virtual ICollection<FlavorTreat> JoinEntities { get; }
   }
