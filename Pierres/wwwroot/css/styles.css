@@ -9,6 +9,60 @@ div#header {
   text-align: center;
 }
 
+body {
+  background-color: aquamarine;
+}
+
+.jumbotron {
+  background-color: rgb(240, 156, 243);
+  padding: 4%;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 2px rgb(181, 64, 185);
+}
+
 .btnRight {
   float: right;
+}
+
+.card {
+  padding: 10px;
+  margin-left: 11vw;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.flavBtn {
+  width: 5vw;
+  margin-left: 7vw;
+  border-radius: 10px;
+  background-color: rgb(240, 156, 243);
+}
+
+.treatBtn {
+  width: 5vw;
+  margin-left: 7vw;
+  border-radius: 10px;
+  background-color: rgb(240, 156, 243);
+}
+
+a {
+  color: black;
+  text-shadow: 1px 1px 1px white;
+}
+
+a:hover {
+  color: black;
+}
+
+.searchForm {
+  text-align: center;
+}
+
+.treatCard {
+  width: 20vw;
+}
+
+.flavCard {
+  width: 20vw;
 }

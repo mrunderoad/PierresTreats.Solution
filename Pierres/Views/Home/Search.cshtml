@@ -9,16 +9,42 @@
   <p>Searces through all users, clicking on a result directs you to your index page.</p>
 </div>
 <hr />
+<div class="searchForm">
 @using (Html.BeginForm())
 {
   @Html.TextBoxFor(model => model.Search)
   <input type="submit" value="Search" />
 }
-@foreach (var treats in ViewBag.Treats)
+</div>
+<hr />
+<div class="row">
+  <div class="card treatCard">
+@if (@ViewBag.Treats.Count == 0)
 {
-  <li>@Html.ActionLink($"{treats.Name}", "Index", "Treats", new { id = treats.TreatId })</li>
+  <h4>No Treats to Display.</h4>
 }
-@foreach (var flavors in ViewBag.Flavors)
+else
 {
-  <li>@Html.ActionLink($"{flavors.Name}", "Index", "Flavors", new { id = flavors.FlavorId })</li> 
+  <h4>Treats Matching Search:</h4>
+  @foreach (var treats in ViewBag.Treats)
+  {
+    <li>@Html.ActionLink($"{treats.Name}", "Index", "Treats", new { id = treats.TreatId })</li>
+  }
 }
+</div>
+<div class="card flavCard">
+  @if (@ViewBag.Flavors.Count == 0)
+  {
+    <h4>No Flavors to Display.</h4>
+  }
+  else
+  {
+    <h4>Flavors Matching Search:</h4>
+    @foreach (var flavors in ViewBag.Flavors)
+    {
+      <li>@Html.ActionLink($"{flavors.Name}", "Index", "Flavors", new { id = flavors.FlavorId })</li> 
+    }
+  }
+</div>
+</div>
+<hr />
