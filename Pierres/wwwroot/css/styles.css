@@ -130,7 +130,7 @@ a:hover {
   background-color: rgb(240, 156, 243);
 }
 
-.createCard {
+.createCard, .addCard {
   text-align: center;
   background-color: rgb(240, 156, 243);
 }
@@ -141,4 +141,8 @@ a:hover {
 
 .rows {
   margin-left: 33vw;
+}
+
+.hi {
+  color: white;
 }

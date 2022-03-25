@@ -11,7 +11,7 @@
 <div class="loginIndex">
   @if (User.Identity.IsAuthenticated)
   {
-    <h5>Greetings @User.Identity.Name!</h5>
+    <h5 class="hi">Greetings @User.Identity.Name!</h5>
     @using (Html.BeginForm("LogOff", "Account"))
     {
       <input type="submit" class="btn btn-danger" value="Log Out?" />

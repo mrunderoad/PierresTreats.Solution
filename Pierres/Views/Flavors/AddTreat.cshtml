@@ -8,13 +8,14 @@
   <h1>Assign Treat to Flavor here!</h1>
 </div>
 <hr />
+<div class="card addCard">
 <h3>Assign a Treat to @Html.DisplayFor(model => model.Name)</h3>
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.FlavorId)
   @Html.Label("Choose Treat:")
   @Html.DropDownList("TreatId")
-  <br>
-  <input type="submit" value="Add to Flavor!" />
+  <button class="btn-warning" type="submit">Add to Treat!</button>
 }
+</div>
 <hr />
