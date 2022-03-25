@@ -107,7 +107,20 @@ a:hover {
   background-color: rgb(240, 156, 243);
 }
 
-.treatFlav, .flavRemove {
+.treatFlav, .flavRemove, .flavTreat, .treatRemove {
+  text-align: center;
+  list-style-position: inside;
+  background-color: rgb(240, 156, 243);
+}
+
+.fName {
+  width: 15vw;
+  text-align: center;
+  margin-left: 28.5vw;
+  background-color: rgb(240, 156, 243);
+}
+
+.treatIndex, .flavorIndex {
   text-align: center;
   list-style-position: inside;
   background-color: rgb(240, 156, 243);

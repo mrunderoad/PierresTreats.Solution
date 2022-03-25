@@ -10,6 +10,7 @@
   <p>Name - Quantity</p>
 </div>
 <hr />
+<div class="card treatIndex">
 @if (Model.Any())
 {
   <ul>
@@ -23,6 +24,7 @@ else
 {
   <h3>No Treats have been made yet! Get Pierre to teach you the ways!</h3>
 }
+</div>
 <hr />
 <button class="btn-warning">@Html.ActionLink("Add new Treat!", "Create")</button>
 <button class="btn-warning">@Html.ActionLink("Home", "Index", "Home")</button>
