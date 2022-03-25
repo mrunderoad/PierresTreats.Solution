@@ -6,20 +6,22 @@
 @model RegisterViewModel
 
 <div class="jumbotron">
-  <h1>Register a new user</h1>
+  <h1>Create a new account</h1>
 </div>
 <hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-  @Html.Label("Enter Email:")
-  @Html.TextBoxFor(user=> user.Email)
-  <br>
-  @Html.Label("Choose Password:")
-  @Html.PasswordFor(user=> user.Password)
-  <br>
-  @Html.Label("Confirm Password:")
-  @Html.PasswordFor(user=> user.ConfirmPassword)
-  <br>
-  <button class="btn-warning" type="submit">Register!</button>
-}
+<div class="card loginCard">
+  @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+  {
+    @Html.Label("Enter Email:")
+    @Html.TextBoxFor(user=> user.Email)
+    <br>
+    @Html.Label("Choose Password:")
+    @Html.PasswordFor(user=> user.Password)
+    <br>
+    @Html.Label("Confirm Password:")
+    @Html.PasswordFor(user=> user.ConfirmPassword)
+    <br>
+    <button class="btn-warning" type="submit">Register!</button>
+  }
+</div>
 <hr />

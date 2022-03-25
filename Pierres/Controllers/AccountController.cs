@@ -4,7 +4,6 @@ using Pierres.Models;
 using System.Threading.Tasks;
 using Pierres.ViewModels;
 
-
 namespace Pierres.Controllers
 {
     public class AccountController : Controller
