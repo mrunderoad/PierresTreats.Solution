@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Pierres.Models
+@model List<Pierres.Models.Treat>;
+
+<div class="jumbotron">
+  <h1>All Avaliable Treats</h1>
+</div>
+<hr />
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</li>
+    }
+  </ul>
+}
+else
+{
+  <h3>No Treats have been made yet! Get Pierre to teach you the ways!</h3>
+}
+<hr />
+<button class="btn-success">@Html.ActionLink("Add new Treat!", "Create")</button>
+<button class="btn-success">@Html.ActionLink("Home", "Index", "Home")</button>
