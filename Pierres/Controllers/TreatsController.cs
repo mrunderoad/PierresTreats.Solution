@@ -4,21 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace Pierres.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
 
-    public readonly PierresContext _db;
-    public TreatsController(PierresContext db)
+    private readonly PierresContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
+    public TreatsController(UserManager<ApplicationUser> userManager, PierresContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View(_db.Treats.ToList());
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      return View(userTreats);
     }
 
     public ActionResult Create()
@@ -28,9 +38,13 @@ namespace Pierres.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat treat, int FlavorId)
+    public async Task<ActionResult> Create(Treat treat, int FlavorId)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      treat.User = currentUser;
       _db.Treats.Add(treat);
+      _db.SaveChanges();
       if (FlavorId != 0)
       {
         _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });

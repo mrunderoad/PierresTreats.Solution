@@ -3,10 +3,10 @@
 }
 
 @using Pierres.Models
-@model List<Pierres.Models.Treat>;
+@model IEnumerable<Pierres.Models.Treat>;
 
 <div class="jumbotron">
-  <h1>All Avaliable Treats</h1>
+  <h1>Treats For @User.Identity.Name</h1>
 </div>
 <hr />
 @if (Model.Any())
