@@ -8,16 +8,18 @@
   <h1>Authentication with Identity</h1>
 </div>
 <hr />
+<div class="loginIndex">
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
+  <h5>Greetings @User.Identity.Name!</h5>
   @using (Html.BeginForm("LogOff", "Account"))
   {
-    <input type="submit" class="btn btn-danger" value="Log Out" />
+    <input type="submit" class="btn btn-danger" value="Log Out?" />
   }
 }
 else
 {
-  <button class="btn-success">@Html.ActionLink("Register", "Register")</button>
-  <button class="btn-success">@Html.ActionLink("Log in", "Login")</button>
+  <button class="btn-warning">@Html.ActionLink("Register", "Register")</button>
+  <button class="btn-warning">@Html.ActionLink("Log in", "Login")</button>
 }
+</div>

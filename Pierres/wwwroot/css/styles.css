@@ -59,20 +59,22 @@ a:hover {
   text-align: center;
 }
 
-.treatCard {
+.treatCard, .allTreat {
   width: 20vw;
   padding: 10px;
   margin-left: 11vw;
   text-align: center;
   border-radius: 10px;
+  background-color: rgb(240, 156, 243);
 }
 
-.flavCard {
+.flavCard, .allFlav {
   padding: 10px;
   margin-left: 11vw;
   text-align: center;
   border-radius: 10px;
   width: 20vw;
+  background-color: rgb(240, 156, 243);
 }
 
 .loginCard {
@@ -81,4 +83,12 @@ a:hover {
   margin-left: 15vw;
   background-color: rgb(240, 156, 243);
   padding: 10px;
+}
+
+.btn-warning {
+  border-radius: 5px;
+}
+
+.loginIndex {
+  text-align: center;
 }
