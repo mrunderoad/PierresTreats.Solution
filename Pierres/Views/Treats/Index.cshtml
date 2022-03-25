@@ -14,6 +14,7 @@
 @if (Model.Any())
 {
   <ul>
+    <h4>Avaliable Treats!</h4>
     @foreach (Treat treat in Model)
     {
       <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) - @Html.DisplayFor(model => treat.Quantity)</li>

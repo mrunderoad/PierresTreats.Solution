@@ -14,11 +14,12 @@
   <h4>No Flavors have been added yet!</h4>
 }
 <ul>
+  <h4>Avaliable Flavors!</h4>
   @foreach(Flavor flavor in Model)
   {
     <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</li>
   }
 </ul>
 </div>
-
+<hr />
 <button class="btn-warning">@Html.ActionLink("Add new Flavor", "Create")</button>
