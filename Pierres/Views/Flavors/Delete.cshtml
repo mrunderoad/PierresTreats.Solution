@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pierres.Models.Flavor
+
+<div class="jumbotron">
+  <h1>Delete @Html.DisplayFor(model => model.Name)?</h1>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+  <button class="btn-success" type="submit">Yes</button>
+}
+<button class="btn-danger">@Html.ActionLink("No", "Index")</button>

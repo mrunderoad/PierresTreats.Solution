@@ -1,0 +1,52 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Pierres.Models.Flavor
+
+<div class="jumbotron">
+  <h1>Details for @Html.DisplayFor(model => model.Name)</h1>
+</div>
+<hr />
+<div class="row">
+<h3>Flavor Name:</h3>
+<p>@Html.DisplayFor(model => model.Name)</p>
+</div>
+<hr />
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h4>@Html.DisplayFor(model => model.Name) doesnt have any Treats assigned to it! C'mon Pierre!!</h4>
+}
+else
+{
+  <h4>@Html.DisplayFor(model => model.Name) has @Html.DisplayFor(model => model.JoinEntities.Count) treats assigned!</h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink(@join.Treat.Name, "Details", "Treats", new { id = join.Treat.TreatId })</li>
+    }
+  </ul>
+}
+<hr />
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h4>No Treats to remove from @Html.DisplayFor(model => model.Name)</h4>
+}
+else
+{
+  <h4>Delete treat from @Html.DisplayFor(model => model.Name)</h4>
+  <ul>
+    @foreach (var join in Model.JoinEntities)
+    {
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.FlavorTreatId)
+        <button class="btn-success" type="submit">@join.Treat.Name</button>
+      }
+    }
+  </ul>
+}
+<hr />
+<button class="btn-">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</button>
+<button class="btn">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</button>
+<button class="btn">@Html.ActionLink("Add Treat to Flavor", "AddTreat", "Flavors", new { id = Model.FlavorId })</button>
