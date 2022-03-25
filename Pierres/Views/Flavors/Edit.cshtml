@@ -8,11 +8,14 @@
   <h1>Edit @Html.DisplayFor(model => model.Name)</h1>
 </div>
 <hr />
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.FlavorId)
-  @Html.Label("Edit Flavor Name:")
-  @Html.EditorFor(model => model.Name, new { required = "required" })
-  <br>
-  <input type="submit" value="Update Flavor!" />
-}
+<div class="card createCard">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+    @Html.Label("Edit Flavor Name:")
+    @Html.EditorFor(model => model.Name, new { required = "required" })
+    <br>
+    <button class="btn-warning" type="submit">Update Flavor!</button>
+  }
+</div>
+<hr />

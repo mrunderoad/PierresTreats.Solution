@@ -7,13 +7,27 @@
   <p>We encourage you to browse some of Pierres <em>Famous</em> sweet and savory treats!</p>
 </div>
 <hr />
-<div class="row">
-  <div class="card homeCard">
-    <img src="https://i.etsystatic.com/16427228/r/il/356230/1930351722/il_fullxfull.1930351722_t1om.jpg" width="300" height="300">
-    <button class="treatBtn">@Html.ActionLink("Treats!", "Index", "Treats")</button>
+@if (User.Identity.IsAuthenticated)
+{
+  <div class="row">
+    <div class="card homeCard">
+      <img src="https://i.etsystatic.com/16427228/r/il/356230/1930351722/il_fullxfull.1930351722_t1om.jpg" width="300"
+      height="300">
+      <button class="treatBtn">@Html.ActionLink("Treats!", "Index", "Treats")</button>
+    </div>
+    <div class="card homeCard">
+      <img
+      src="https://images.squarespace-cdn.com/content/v1/575737bc40261ddcdeb85179/1562077102750-FBZ59XGEGCTMM44X42AV/FLAVORS.gif"
+      width="300" height="300">
+      <button class="flavBtn">@Html.ActionLink("Flavors!", "Index", "Flavors")</button>
+    </div>
   </div>
-  <div class="card homeCard">
-    <img src="https://images.squarespace-cdn.com/content/v1/575737bc40261ddcdeb85179/1562077102750-FBZ59XGEGCTMM44X42AV/FLAVORS.gif" width="300" height="300">
-    <button class="flavBtn">@Html.ActionLink("Flavors!", "Index", "Flavors")</button>
+}
+else
+{
+  <div class="home">
+    <h4>Looks like you arent Logged in! Log in or click the button below to view Treats and Flavors!</h4>
+    <button class="btn-warning">@Html.ActionLink("View Treats and Flavors!", "All", "Home")</button>
   </div>
-</div>
+}
+<hr />

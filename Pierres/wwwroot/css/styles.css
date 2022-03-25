@@ -126,6 +126,11 @@ a:hover {
   background-color: rgb(240, 156, 243);
 }
 
+.createCard {
+  text-align: center;
+  background-color: rgb(240, 156, 243);
+}
+
 .clickMe {
   float: left;
   transition: 0.5s;
@@ -133,4 +138,8 @@ a:hover {
 
 .clickMe:hover {
   display: none;
+}
+
+.home {
+  text-align: center;
 }

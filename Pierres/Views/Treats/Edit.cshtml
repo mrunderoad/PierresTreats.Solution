@@ -9,15 +9,17 @@
   <h1>Edit @Html.DisplayFor(model => model.Name)</h1>
 </div>
 <hr />
-@using (Html.BeginForm())
-{
-  @Html.HiddenFor(model => model.TreatId)
-  @Html.Label("Edit Treat Name:")
-  @Html.EditorFor(model => model.Name, new { required = "required" })
-  <br>
-  @Html.Label("Edit Treat Quantity:")
-  @Html.EditorFor(model => model.Quantity, new { type = "number", required = "required" })
-  <br>
-  <input type="submit" value="Update Treat!" />
-}
+<div class="card createCard">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.TreatId)
+    @Html.Label("Edit Treat Name:")
+    @Html.EditorFor(model => model.Name, new { required = "required" })
+    <br>
+    @Html.Label("Edit Treat Quantity:")
+    @Html.EditorFor(model => model.Quantity, new { type = "number", required = "required" })
+    <br>
+    <button class="btn-warning" type="submit">Update Treat!</button>
+  }
+</div>
 <hr />

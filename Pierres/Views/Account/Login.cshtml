@@ -10,14 +10,15 @@
 </div>
 <hr />
 <div class="card loginCard">
-@using (Html.BeginForm())
-{
-  @Html.Label("Enter Email: ")
-  @Html.TextBoxFor(m => m.Email)
-  <br>
-  @Html.Label("Enter Password: ")
-  @Html.PasswordFor(m => m.Password)
-  <br>
-  <button type="submit" class="btn-success">Log In!</button>
-}
+  @using (Html.BeginForm())
+  {
+    @Html.Label("Enter Email: ")
+    @Html.TextBoxFor(m => m.Email)
+    <br>
+    @Html.Label("Enter Password: ")
+    @Html.PasswordFor(m => m.Password)
+    <br>
+    <button type="submit" class="btn-warning">Log In!</button>
+  }
 </div>
+<hr />

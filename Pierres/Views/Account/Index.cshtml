@@ -9,17 +9,18 @@
 </div>
 <hr />
 <div class="loginIndex">
-@if (User.Identity.IsAuthenticated)
-{
-  <h5>Greetings @User.Identity.Name!</h5>
-  @using (Html.BeginForm("LogOff", "Account"))
+  @if (User.Identity.IsAuthenticated)
   {
-    <input type="submit" class="btn btn-danger" value="Log Out?" />
+    <h5>Greetings @User.Identity.Name!</h5>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn btn-danger" value="Log Out?" />
+    }
   }
-}
-else
-{
-  <button class="btn-warning">@Html.ActionLink("Register", "Register")</button>
-  <button class="btn-warning">@Html.ActionLink("Log in", "Login")</button>
-}
+  else
+  {
+    <button class="btn-warning">@Html.ActionLink("Register", "Register")</button>
+    <button class="btn-warning">@Html.ActionLink("Log in", "Login")</button>
+  }
 </div>
+<hr />

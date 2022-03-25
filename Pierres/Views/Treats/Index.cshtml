@@ -7,25 +7,26 @@
 
 <div class="jumbotron">
   <h1>Avaliable Treats For @User.Identity.Name</h1>
-  <p>Name - Quantity</p>
 </div>
 <hr />
 <div class="card treatIndex">
-@if (Model.Any())
-{
-  <ul>
-    <h4>Avaliable Treats!</h4>
-    @foreach (Treat treat in Model)
-    {
-      <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) - @Html.DisplayFor(model => treat.Quantity)</li>
-    }
-  </ul>
-}
-else
-{
-  <h3>No Treats have been made yet! Get Pierre to teach you the ways!</h3>
-}
+  @if (Model.Any())
+  {
+    <ul>
+      <h4>Avaliable Treats!</h4>
+      <p>Name - Quantity</p>
+      @foreach (Treat treat in Model)
+      {
+        <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId }) - @Html.DisplayFor(model =>
+      treat.Quantity)</li>
+      }
+    </ul>
+  }
+  else
+  {
+    <h3>No Treats have been made yet! Get Pierre to teach you the ways!</h3>
+  }
 </div>
 <hr />
 <button class="btn-warning">@Html.ActionLink("Add new Treat!", "Create")</button>
-<button class="btn-warning">@Html.ActionLink("Home", "Index", "Home")</button>
+<hr />

@@ -8,10 +8,13 @@
   <h1>Add Flavor</h1>
 </div>
 <hr />
-@using (Html.BeginForm())
-{
-  @Html.Label("Flavor Name:")
-  @Html.TextBoxFor(model => model.Name, new { required = "required" })
-  <br>
-  <input type="submit" value="Add Flavor!" />
-}
+<div class="card createCard">
+  @using (Html.BeginForm())
+  {
+    @Html.Label("Flavor Name:")
+    @Html.TextBoxFor(model => model.Name, new { required = "required" })
+    <br>
+    <button class="btn-warning" type="submit">Add Flavor!</button>
+  }
+</div>
+<hr />

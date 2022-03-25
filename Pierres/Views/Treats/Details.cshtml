@@ -8,58 +8,94 @@
   <h1>Details for @Html.DisplayFor(model => model.Name):</h1>
 </div>
 <hr />
-<div class="row">
-  <div class="card tName">
-  <h3>Treat Name:</h3>
-  <p>@Html.DisplayFor(model => model.Name)</p>
-  </div>
-  <div class="card tQuantity">
-  <h3>Treat Quantity:</h3>
-  <p>@Html.DisplayFor(model => model.Quantity)</p>
-  </div>
-</div>
-<hr />
-<div class="card treatFlav">
-@if (@Model.JoinEntities.Count == 0)
+@if (User.Identity.IsAuthenticated)
 {
-  <h4>@Html.DisplayFor(model => model.Name) is not assigned under a Flavor!</h4>
-}
-else
-{
-  <h4>@Html.DisplayFor(model => model.Name) is assigned to the following @Html.DisplayFor(model => model.JoinEntities.Count) flavors:</h4>
-  <ul>
-    @foreach (var join in Model.JoinEntities)
-    {
-      <li>@Html.ActionLink(@join.Flavor.Name, "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
-    }
-  </ul>
-}
-</div>
-<hr />
-<div class="card flavRemove">
-@if (@Model.JoinEntities.Count == 0)
-{
-  <h4>No Flavors to remove @Html.DisplayFor(model => model.Name) from.</h4>
-}
-else
-{
-  <h4>Remove @Html.DisplayFor(model => model.Name) from Flavor:</h4>
-  <ul>
-    <div class="row">
-      @foreach (var join in Model.JoinEntities)
-      {
-        @using (Html.BeginForm("DeleteFlavor", "Treats"))
-        {
-          @Html.Hidden("joinId", @join.FlavorTreatId)
-          <button class="btn-danger" type="submit">@join.Flavor.Name</button>
-        }
-      }
+  <div class="row">
+    <div class="card tName">
+      <h3>Treat Name:</h3>
+      <p>@Html.DisplayFor(model => model.Name)</p>
     </div>
-  </ul>
+    <div class="card tQuantity">
+      <h3>Treat Quantity:</h3>
+      <p>@Html.DisplayFor(model => model.Quantity)</p>
+    </div>
+  </div>
+  <hr />
+  <div class="card treatFlav">
+    @if (@Model.JoinEntities.Count == 0)
+    {
+      <h4>@Html.DisplayFor(model => model.Name) is not assigned under a Flavor!</h4>
+    }
+    else
+    {
+      <h4>@Html.DisplayFor(model => model.Name) is assigned to the following @Html.DisplayFor(model =>
+    model.JoinEntities.Count) flavors:</h4>
+      <ul>
+        @foreach (var join in Model.JoinEntities)
+        {
+          <li>@Html.ActionLink(@join.Flavor.Name, "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
+        }
+      </ul>
+    }
+  </div>
+  <hr />
+  <div class="card flavRemove">
+    @if (@Model.JoinEntities.Count == 0)
+    {
+      <h4>No Flavors to remove @Html.DisplayFor(model => model.Name) from.</h4>
+    }
+    else
+    {
+      <h4>Remove @Html.DisplayFor(model => model.Name) from Flavor:</h4>
+      <ul>
+        <div class="row">
+          @foreach (var join in Model.JoinEntities)
+          {
+            @using (Html.BeginForm("DeleteFlavor", "Treats"))
+            {
+              @Html.Hidden("joinId", @join.FlavorTreatId)
+              <button class="btn-danger" type="submit">@join.Flavor.Name</button>
+            }
+          }
+        </div>
+      </ul>
+    }
+  </div>
+  <hr />
+  <button class="btn-warning">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
+  <button class="btn-warning">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</button>
+  <button class="btn-warning">@Html.ActionLink("Add Treat to Flavor", "AddFlavor", new { id = Model.TreatId })</button>
+  <hr />
 }
-</div>
-<hr />
-<button class="btn-warning">@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</button>
-<button class="btn-warning">@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</button>
-<button class="btn-warning">@Html.ActionLink("Add Treat to Flavor", "AddFlavor", new { id = Model.TreatId })</button>
-
+else
+{
+  <div class="row">
+    <div class="card tName">
+      <h3>Treat Name:</h3>
+      <p>@Html.DisplayFor(model => model.Name)</p>
+    </div>
+    <div class="card tQuantity">
+      <h3>Treat Quantity:</h3>
+      <p>@Html.DisplayFor(model => model.Quantity)</p>
+    </div>
+  </div>
+  <hr />
+  <div class="card treatFlav">
+    @if (@Model.JoinEntities.Count == 0)
+    {
+      <h4>@Html.DisplayFor(model => model.Name) is not assigned under a Flavor!</h4>
+    }
+    else
+    {
+      <h4>@Html.DisplayFor(model => model.Name) is assigned to the following @Html.DisplayFor(model =>
+    model.JoinEntities.Count) flavors:</h4>
+      <ul>
+        @foreach (var join in Model.JoinEntities)
+        {
+          <li>@Html.ActionLink(@join.Flavor.Name, "Details", "Flavors", new { id = join.Flavor.FlavorId })</li>
+        }
+      </ul>
+    }
+  </div>
+  <hr />
+}

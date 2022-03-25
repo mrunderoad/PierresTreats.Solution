@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Pierres.Models;
 using System.Threading.Tasks;
 using Pierres.ViewModels;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
+
 
 namespace Pierres.Controllers
 {
